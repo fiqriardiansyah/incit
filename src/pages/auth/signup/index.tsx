@@ -26,7 +26,7 @@ export default function AuthSignup() {
             toast.success("Email Verification has been send, please check your email");
             Cookies.set('token', accesstoken);
             user.setUser(profile);
-            navigate('/dashboard', { replace: true });
+            navigate(profile?.verified ? '/dashboard' : "/unverified", { replace: true });
         }
     });
 
