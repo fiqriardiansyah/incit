@@ -1,6 +1,6 @@
 import HomePage from 'pages/home';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import './style/global.css';
 import Auth from 'pages/auth';
 import AuthSignin from 'pages/auth/signin';
@@ -68,6 +68,10 @@ const router = createBrowserRouter([
     {
         path: '/set-cookie',
         element: <SetCookie />
+    },
+    {
+        path: "*",
+        element: <Navigate to="/" />,
     }
 ]);
 

@@ -24,3 +24,6 @@ export interface PasswordReset {
     password: string;
     newpassword: string;
 }
+export interface PasswordSet {
+    password: string;
+}
