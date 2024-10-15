@@ -1,5 +1,5 @@
-import { Link, Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { Link, Navigate } from "react-router-dom";
 
 export default function HomePage() {
     const token = Cookies.get("token");
