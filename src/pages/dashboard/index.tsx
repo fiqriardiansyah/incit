@@ -1,15 +1,12 @@
 import { useUser } from "context/user";
 import Cookies from "js-cookie";
-import React from "react";
 import { useMutation } from "react-query";
-import { Link, Navigate, Outlet, useSearchParams } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
 import { authService } from "service/auth";
 
 export default function Dashboard() {
-    const [searchParams, setSearchParams] = useSearchParams();
     const user = useUser();
 
-    const tokenUrl = searchParams.get("token");
     let token = Cookies.get("token");
 
     const logoutMutate = useMutation(async () => (await authService.logout()).data.data);
@@ -19,15 +16,6 @@ export default function Dashboard() {
         Cookies.remove("token");
         logoutMutate.mutate();
     }
-
-    React.useEffect(() => {
-        if (tokenUrl) {
-            token = tokenUrl;
-            Cookies.set("token", tokenUrl);
-            searchParams.delete("token");
-            setSearchParams(searchParams);
-        }
-    }, [tokenUrl]);
 
     if (!token) {
         return <Navigate to="/signin" />

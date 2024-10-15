@@ -15,6 +15,7 @@ import ResetPassword from 'pages/reset-password';
 import NotVerif from 'pages/not-verif';
 import UserList from 'pages/user-list';
 import Analitycs from 'pages/analitycs';
+import SetCookie from 'pages/set-cookie';
 
 const client = new QueryClient();
 
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
     {
         path: '/unverified',
         element: <NotVerif />
+    },
+    {
+        path: '/set-cookie',
+        element: <SetCookie />
     }
 ]);
 
