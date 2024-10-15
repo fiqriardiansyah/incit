@@ -24,7 +24,7 @@ export default function AuthSignin() {
             Cookies.set('token', accesstoken);
             console.log({ profile });
             user.setUser(profile);
-            navigate(profile?.verified ? '/dashboard' : "/unverified", { replace: true });
+            window.location.href = profile?.verified ? '/dashboard' : "/unverified";
         }
     });
 
